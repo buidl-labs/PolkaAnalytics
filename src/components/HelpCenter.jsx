@@ -17,6 +17,7 @@ import HowToStake from "./guides/HowToStake";
 import LogEvent from './LogEvent';
 import Helmet from "react-helmet";
 import Footer from "./Footer";
+import GuideGenerator from './guides/guideGenerator'
 
 export default function HelpCenter() {
     return (
@@ -68,7 +69,16 @@ export default function HelpCenter() {
 							</Text>
 						</Box>
 					</Link>
-
+					<Link to="/help-center/guides/guide-generator">
+					<Box className="card" mt={8} p={8}>
+						<Heading as="h3" size="lg">
+						Generate guide from json
+						</Heading>
+						<Text my={4}>
+						A step by step guide on how to automate guide generator
+						</Text>
+					</Box>
+					</Link>
 					{/* FAQs Section */}
 					<Text fontSize="2xl" textAlign="center" mt={16} mb={8}>
 						FAQs
@@ -88,9 +98,7 @@ export default function HelpCenter() {
 				</Route>
 
 				{/* Guides */}
-				<Route exact path="/help-center/guides/how-to-stake">
-					<HowToStake />
-				</Route>
+			<Route path="/help-center/guides/" component={(props) => <GuideGenerator props={props.location.pathname}/>} />
 				<Footer />
 			</React.Fragment>
 		);

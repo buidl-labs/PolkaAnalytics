@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Link } from "react-router-dom";
+import { Route } from "react-router-dom";
 import {
     Box,
     Heading,
@@ -13,7 +13,8 @@ import {
     Link as ChakraLink
 } from "@chakra-ui/core";
 import FAQs from "./FAQs";
-import HowToStake from "./guides/HowToStake";
+import GuidesList from "./guides/GuidesList";
+// import HowToStake from "./guides/HowToStake";
 import LogEvent from './LogEvent';
 import Helmet from "react-helmet";
 import Footer from "./Footer";
@@ -57,6 +58,9 @@ export default function HelpCenter() {
 						Guides
 					</Text>
 					{/* List of guides */}
+					<GuidesList />
+
+{/*
 					<Link to="/help-center/guides/how-to-stake">
 						<Box className="card" mt={8} p={8}>
 							<Heading as="h3" size="lg">
@@ -68,6 +72,7 @@ export default function HelpCenter() {
 							</Text>
 						</Box>
 					</Link>
+*/}
 
 					{/* FAQs Section */}
 					<Text fontSize="2xl" textAlign="center" mt={16} mb={8}>
@@ -88,9 +93,11 @@ export default function HelpCenter() {
 				</Route>
 
 				{/* Guides */}
+				{/**
 				<Route exact path="/help-center/guides/how-to-stake">
 					<HowToStake />
 				</Route>
+				*/}
 				<Footer />
 			</React.Fragment>
 		);

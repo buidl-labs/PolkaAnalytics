@@ -17,7 +17,8 @@ import {
 	InputRightAddon,
 	Spinner,
 	Link,
-	CircularProgress
+	CircularProgress,
+	Modal
 } from "@chakra-ui/core";
 import { Helmet } from "react-helmet";
 import { useDebounce } from "use-debounce";
@@ -32,6 +33,7 @@ import socketIOClient from "socket.io-client";
 import LogEvent from "./components/LogEvent";
 import ErrorMessage from "./components/ErrorMessage";
 import NavBar from "./components/NavBar";
+import { Component } from "react";
 
 const AMPLITUDE_KEY = "1f1699160a46dec6cc7514c14cb5c968";
 
@@ -226,7 +228,7 @@ function App() {
 									textAlign="center"
 								>
 									How to stake?
-								</Link>
+								</Link>								
 								{/* Validator Table */}
 								<Text textAlign="center" mt={8} mb={8}>
 									Looking for a list of active validators to stake on? Look no
@@ -237,7 +239,7 @@ function App() {
 									dataSource={
 										validatorTableData !== undefined ? validatorTableData : []
 									}
-								/>
+								/>							
 							</React.Fragment>
 						) : (
 							<Box
@@ -271,6 +273,7 @@ function App() {
 					<Route path="/help-center">
 						<HelpCenter />
 					</Route>
+					
 				</Flex>
 				{/* Validator specific view */}
 				<Route
@@ -378,6 +381,36 @@ function App() {
 						</Box>
 					)}
 				</Route>
+					{/* Privacy Preference */}
+					<Flex
+						flexDirection="column"
+						alignItems="center"
+						position="sticky"
+						bottom="0"
+						backgroundImage={
+										colorMode === "light"
+											? "linear-gradient(rgba(226, 232, 240, 1), rgba(226, 232, 240, 1), rgba(226, 232, 240, 1), rgba(226, 232, 240, 0))"
+											: "linear-gradient(rgba(38, 44, 55, 1), rgba(38, 44, 55, 1), rgba(38, 44, 55, 1), rgba(38, 44, 55, 0))"
+						}
+						pt={8}
+						pb={12}
+					>
+					<Text
+						mb={2}
+						textAlign="center"
+						fontSize="md"
+						color="gray.500"
+					>
+
+					We use data to analyse our traffic to create better user experience. You can go to privacy settings to check your preferences.
+
+				<div className="App"></div>
+					<button onClick={Modal}>Preferences</button>
+					<dialog onClickCapture={(e) => this.setState({ isOpen: false })}>
+
+				</dialog>
+					</Text>	
+					</Flex>	
 			</Router>
 		</AmplitudeProvider>
 	);

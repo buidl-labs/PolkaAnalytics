@@ -397,21 +397,32 @@ function App() {
 					>
 					<Text
 						mb={2}
-						textAlign="center"
+						textAlign="left"
 						fontSize="md"
 						color="white.500"
+						paddingX="100px"
 					>
-
-					We use data to analyse our traffic to create better user experience. You can go to privacy settings to check your preferences.
+We use data to analyse our traffic to create better user experience. You can choose to accept or decline based on your personal choice. 
+					<InputRightAddon
+						children="Decline"
+						backgroundColor="teal.400"
+						paddingRight ="16px"
+						roundedTop=".5em"
+						float="right"
+						alignSelf="right"
+						roundedBottom=".5em"
+						marginX="50px"
+						
+					/>
 					<InputRightAddon
 						children="Accept"
 						backgroundColor="teal.400"
-						roundedTop="2em"
-						roundedBottom= "2em"
-						children ="Decline"
-						backgroundColor="teal.400"
+						paddingRight="16px"
+						float="right"
+						roundedTop=".5em"
+						alignSelf="right"
+						roundedBottom=".5em"
 					/>
-
 					</Text>	
 					</Flex>	
 			</Router>

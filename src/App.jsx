@@ -422,6 +422,7 @@ We use data to analyse our traffic to create better user experience. You can cho
 						roundedTop=".5em"
 						alignSelf="right"
 						roundedBottom=".5em"
+						marginLeft="60px"
 					/>
 					</Text>	
 					</Flex>	

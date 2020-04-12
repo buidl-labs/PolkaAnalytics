@@ -399,16 +399,19 @@ function App() {
 						mb={2}
 						textAlign="center"
 						fontSize="md"
-						color="gray.500"
+						color="white.500"
 					>
 
 					We use data to analyse our traffic to create better user experience. You can go to privacy settings to check your preferences.
+					<InputRightAddon
+						children="Accept"
+						backgroundColor="teal.400"
+						roundedTop="2em"
+						roundedBottom= "2em"
+						children ="Decline"
+						backgroundColor="teal.400"
+					/>
 
-				<div className="App"></div>
-					<button onClick={Modal}>Preferences</button>
-					<dialog onClickCapture={(e) => this.setState({ isOpen: false })}>
-
-				</dialog>
 					</Text>	
 					</Flex>	
 			</Router>

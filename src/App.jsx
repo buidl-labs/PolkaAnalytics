@@ -10,6 +10,7 @@ import {
 	Button,
 	Modal,
 	ModalOverlay,
+	Stack,
 	ModalContent,
 	ModalHeader,
 	ModalFooter,
@@ -47,7 +48,9 @@ import { Component } from "react";
 
 const AMPLITUDE_KEY = "1f1699160a46dec6cc7514c14cb5c968";
 
+
 function App() {
+	const { isOpen, onOpen, onClose } = useDisclosure();
 	const { colorMode, toggleColorMode } = useColorMode();
 	const [electedInfo, setElectedInfo] = React.useState({});
 	const [validatorData, setValidatorData] = React.useState([]);
@@ -413,18 +416,45 @@ function App() {
 						color="white.500"
 						paddingX="100px"
 					>
-					We use data to analyse our traffic to create better user experience. You can choose to accept or decline based on your personal choice.
+					We use data to analyse our traffic to create better user experience. By clicking Accept, you agree to our collection of data. 
 					<ButtonGroup 
 					spacing={4}
 					marginX="60px">
-					<Button variantColor="teal" variant="solid">Accept</Button>
+					<Button onClick={ AMPLITUDE_KEY == true } variantColor="teal" variant="solid">Accept</Button>
 					</ButtonGroup>
-					<ButtonGroup 
-					spacing={4}
-					marginleft="30px">
-					<Button variantColor="teal" variant="solid">Decline</Button>
-					</ButtonGroup>
+					
+					<>
+      				<Button variantColor="teal" variant="solid" onClick={onOpen}>Privacy Preference</Button>
 
+					  <Modal isOpen={isOpen} onClose={onClose} 							
+					  		top="50%"
+							left="50%"
+							transform="translate(-50%, -50%)"
+							alignSelf="center"
+							justifyContent="center">
+        			<ModalOverlay />
+        			<ModalContent>
+          			<ModalHeader>Privacy Setting</ModalHeader>
+          			<ModalCloseButton />
+          			<ModalBody  mt={4}
+								fontSize="xl"
+								color="white.400"
+								textAlign="left"
+								alignSelf="left">
+					  Non-essential data collection 
+						<Stack isInline 
+						  marginX="280px"
+						  marginY="-25px">
+  						<Switch color="teal" size="lg" />
+						</Stack>
+          			</ModalBody>
+
+          			<ModalFooter>
+            		
+          			</ModalFooter>
+        			</ModalContent>
+      				</Modal>
+    				</>
 					</Text>	
 					</Flex>	
 			</Router>

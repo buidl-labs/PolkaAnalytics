@@ -400,8 +400,8 @@ function App() {
 						bottom="1"
 						backgroundImage={
 						colorMode === "light"
-							? "linear-gradient(rgba(226, 232, 240, 1), rgba(226, 232, 240, 1), rgba(226, 232, 240, 1), rgba(226, 232, 240, 0))"
-							: "linear-gradient(rgba(38, 44, 55, 1), rgba(38, 44, 55, 1), rgba(38, 44, 55, 1), rgba(38, 44, 55, 0))"
+							? "linear-gradient(rgba(226, 232, 240, 1), rgba(226, 232, 240, 1), rgba(226, 232, 240, 1), rgba(226, 232, 240, 1))"
+							: "linear-gradient(rgba(38, 44, 55, 1), rgba(38, 44, 55, 1), rgba(38, 44, 55, 1), rgba(38, 44, 55, 1))"
 						}
 						pt={8}
 						pb={20}
@@ -417,9 +417,7 @@ function App() {
 					<ButtonGroup 
 					spacing={4}
 					marginX="60px">
-					<Button 
-					children="Accept"
-					variantColor="teal" variant="solid">Accept</Button>
+					<Button variantColor="teal" variant="solid">Accept</Button>
 					</ButtonGroup>
 					<ButtonGroup 
 					spacing={4}

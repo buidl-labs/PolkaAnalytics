@@ -4,7 +4,7 @@ import {
   ThemeProvider,
   ColorModeProvider,
   CSSReset,
-  theme
+  theme,
 } from '@chakra-ui/core';
 import App from './App.jsx';
 import './stylesheets/scss/index.scss';

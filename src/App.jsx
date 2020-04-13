@@ -7,6 +7,15 @@ import {
 	Redirect
 } from "react-router-dom";
 import {
+	Button,
+	Modal,
+	ModalOverlay,
+	ModalContent,
+	ModalHeader,
+	ModalFooter,
+	ModalBody,
+	ModalCloseButton,
+	Switch,
 	Flex,
 	useColorMode,
 	Box,
@@ -18,7 +27,8 @@ import {
 	Spinner,
 	Link,
 	CircularProgress,
-	Modal
+	ButtonGroup,
+	useDisclosure
 } from "@chakra-ui/core";
 import { Helmet } from "react-helmet";
 import { useDebounce } from "use-debounce";
@@ -386,14 +396,15 @@ function App() {
 						flexDirection="column"
 						alignItems="center"
 						position="sticky"
-						bottom="0"
+						paddingBottom="5px"
+						bottom="1"
 						backgroundImage={
-										colorMode === "light"
-											? "linear-gradient(rgba(226, 232, 240, 1), rgba(226, 232, 240, 1), rgba(226, 232, 240, 1), rgba(226, 232, 240, 0))"
-											: "linear-gradient(rgba(38, 44, 55, 1), rgba(38, 44, 55, 1), rgba(38, 44, 55, 1), rgba(38, 44, 55, 0))"
+						colorMode === "light"
+							? "linear-gradient(rgba(226, 232, 240, 1), rgba(226, 232, 240, 1), rgba(226, 232, 240, 1), rgba(226, 232, 240, 0))"
+							: "linear-gradient(rgba(38, 44, 55, 1), rgba(38, 44, 55, 1), rgba(38, 44, 55, 1), rgba(38, 44, 55, 0))"
 						}
 						pt={8}
-						pb={12}
+						pb={20}
 					>
 					<Text
 						mb={2}
@@ -402,28 +413,20 @@ function App() {
 						color="white.500"
 						paddingX="100px"
 					>
-We use data to analyse our traffic to create better user experience. You can choose to accept or decline based on your personal choice. 
-					<InputRightAddon
-						children="Decline"
-						backgroundColor="teal.400"
-						paddingRight ="16px"
-						roundedTop=".5em"
-						float="right"
-						alignSelf="right"
-						roundedBottom=".5em"
-						marginX="50px"
-						
-					/>
-					<InputRightAddon
-						children="Accept"
-						backgroundColor="teal.400"
-						paddingRight="16px"
-						float="right"
-						roundedTop=".5em"
-						alignSelf="right"
-						roundedBottom=".5em"
-						marginLeft="60px"
-					/>
+					We use data to analyse our traffic to create better user experience. You can choose to accept or decline based on your personal choice.
+					<ButtonGroup 
+					spacing={4}
+					marginX="60px">
+					<Button 
+					children="Accept"
+					variantColor="teal" variant="solid">Accept</Button>
+					</ButtonGroup>
+					<ButtonGroup 
+					spacing={4}
+					marginleft="30px">
+					<Button variantColor="teal" variant="solid">Decline</Button>
+					</ButtonGroup>
+
 					</Text>	
 					</Flex>	
 			</Router>

@@ -26,16 +26,18 @@ import axios from 'axios';
 export default function HelpCenter() {
 	
 	const [data, setData] = React.useState();
+	let i = 1;
 
 	React.useEffect(async () => {
 		const result = await axios(
-			'https://my-json-server.typicode.com/suyanksaraswat/task/posts/',
+			'https://polka-helpcenter.herokuapp.com/api/getAllPosts',
 		);
-		setData(result.data);
+		setData(result.data.posts);
+		
+
 	}, []);
 
-	console.log('[mock-server] Data - ', data);
-
+	console.log('[MongoDB-Server] Data - ', data);
 	return (
 			<React.Fragment>
 				{/* Help Center Home */}
@@ -70,7 +72,7 @@ export default function HelpCenter() {
 						</Flex> */}
 
 						{/* Guides Section */}
-						<Text fontSize="2xl" textAlign="center" mt={16}>
+						<Text fontSize="2xl" textAlign="center" mt={16} mb={8}>
 							Guides 
 						</Text>
 						{/* List of guides */}
@@ -81,13 +83,13 @@ export default function HelpCenter() {
 									<Heading size="md">
 										{data.title}
 									</Heading>
-									{data.des}
+									{data.desc}
 								</Box>
 								<AccordionIcon />
 							</AccordionHeader>
 							<AccordionPanel pb={4}>
 								{data.steps.map(step => (
-								<VerticalTimeline layout="1-column" className="py-0">
+								<VerticalTimeline layout="1-column" className="py-1">
 									<VerticalTimelineElement
 										contentStyle={{
 										background: "transparent",
@@ -99,7 +101,7 @@ export default function HelpCenter() {
 										}}
 										icon={
 										<Heading as="h5" size="sm">
-											{step.id}
+											{i++}
 										</Heading>
 										}
 										iconStyle={{
@@ -113,7 +115,7 @@ export default function HelpCenter() {
 											{step.title}
 										</Heading>
 										<Text>
-											{step.des}
+											{step.desc}
 										</Text>
 									</VerticalTimelineElement>
 								</VerticalTimeline>

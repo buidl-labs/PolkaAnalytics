@@ -396,61 +396,81 @@ function App() {
 				</Route>
 					{/* Privacy Preference */}
 					<Flex
-						flexDirection="column"
-						alignItems="center"
-						position="sticky"
-						paddingBottom="5px"
+						flex-flow="row wrap"
+						flexDirection="row"
+						display="flex"
+						height="96px"
+						width="stretch"
+						position="fixed"
+						flexWrap="wrap"
+						mb="-0.5em"
 						bottom="1"
+						justify="space-between"
+						align="baseline" mt={2}
 						backgroundImage={
 						colorMode === "light"
 							? "linear-gradient(rgba(226, 232, 240, 1), rgba(226, 232, 240, 1), rgba(226, 232, 240, 1), rgba(226, 232, 240, 1))"
 							: "linear-gradient(rgba(38, 44, 55, 1), rgba(38, 44, 55, 1), rgba(38, 44, 55, 1), rgba(38, 44, 55, 1))"
 						}
 						pt={8}
-						pb={20}
+						pb={8}
 					>
 					<Text
 						mb={2}
 						textAlign="left"
 						fontSize="md"
 						color="white.500"
-						paddingX="100px"
+						paddingX="96px"
+						paddingRight="40px"
+						alignSelf="left"
+						justifyContent="left"
+						textAlign="left"
+						paddingBottom="60px"
 					>
-					We use data to analyse our traffic to create better user experience. By clicking Accept, you agree to our collection of data. 
+					We collect using our analytics tool to create better user experience and optimisation, by clicking Accept you agree to our collection of data. You can choose to share data based on our preference setting.
 					<ButtonGroup 
 					spacing={4}
-					marginX="60px">
-					<Button onClick={ AMPLITUDE_KEY == true } variantColor="teal" variant="solid">Accept</Button>
+					paddingX="1px"
+					paddingRight="30px"
+					paddingLeft="30px"
+					position="right"
+					>
+					<Button onClick={ AMPLITUDE_KEY === true } variantColor="teal" variant="solid" position="revert">Accept</Button>
 					</ButtonGroup>
-					
 					<>
-      				<Button variantColor="teal" variant="solid" onClick={onOpen}>Privacy Preference</Button>
-
-					  <Modal isOpen={isOpen} onClose={onClose} 							
-					  		top="50%"
-							left="50%"
-							transform="translate(-50%, -50%)"
-							alignSelf="center"
-							justifyContent="center">
+      				<Button variantColor="teal" variant="solid" position="right" onClick={onOpen}>Preference</Button>
+					  <Modal  isOpen={isOpen} onClose={onClose} 							
+							size="lg"
+							alignSelf="right"
+							justifyContent="right">
         			<ModalOverlay />
         			<ModalContent>
-          			<ModalHeader>Privacy Setting</ModalHeader>
+          			<ModalHeader
+					  paddingTop="18px">Privacy Setting</ModalHeader>
           			<ModalCloseButton />
           			<ModalBody  mt={4}
 								fontSize="xl"
 								color="white.400"
 								textAlign="left"
-								alignSelf="left">
+								alignSelf="left"
+								>
 					  Non-essential data collection 
 						<Stack isInline 
-						  marginX="280px"
-						  marginY="-25px">
+						  marginX=" 410px"
+						  marginY="-26px">
   						<Switch color="teal" size="lg" />
 						</Stack>
-          			</ModalBody>
-
+          			</ModalBody >
+					<ModalBody mt={4}
+								fontSize="m"
+								color="white.300"
+								textAlign="left"
+								alignSelf="left"
+								paddingRight="132px"
+					>
+					The storage of information is anonymous, it will stored on our server. This also includes your previous stored cookies about browsing data, processed information for your use of service.
+					</ModalBody>
           			<ModalFooter>
-            		
           			</ModalFooter>
         			</ModalContent>
       				</Modal>

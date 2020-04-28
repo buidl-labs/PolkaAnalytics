@@ -47,7 +47,7 @@ function App() {
 	);
 	const [maxDailyEarning, setMaxDailyEarning] = React.useState(0);
 	const [stakeInput, setStakeInput] = React.useState(1000.0);
-	const [stakeAmount] = useDebounce(stakeInput, 500.0);
+	const [stakeAmount] = useDebounce(stakeInput/16, 500.0);
 	const [apiConnected, setApiConnected] = React.useState(false);
 	const [isLoaded, setIsLoaded] = React.useState(false);
 	const ERA_PER_DAY = 4;

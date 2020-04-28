@@ -22,6 +22,23 @@ export default function ValidatorTable(props) {
 	const [redirect, setRedirect] = React.useState(false);
 	const [validatorPath, setValidatorPath] = React.useState("");
 	const { dataSource } = props;
+	dataSource.sort(function(a,b){
+		var keyA = a.dailyEarningPrecise;
+		var keyB = b.dailyEarningPrecise;
+
+		if (keyA > keyB) return -1;
+		if (keyA < keyB) return 1;
+		return 0;
+	});
+	console.log('top 16 validators - ', dataSource.slice(0,16));
+	var count = 0;
+	if(dataSource.length>0){
+		for(var i=0; i<16; i++) {
+			count = count + dataSource[i].dailyEarningPrecise;
+		}
+	}
+	console.log('estimated daily earning - ', count);
+	
 	const { Column } = Table;
 	const toast = useToast();
 	return (

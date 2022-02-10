@@ -20,7 +20,7 @@
     "express": "^4.17.1",
     "ignore-styles": "^5.0.1",
     "konva": "^4.0.18",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
